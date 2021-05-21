@@ -12,7 +12,12 @@ function newKoder (koder){
     return Koders.create( { name, lastName, age, gender } )
 }
 
+function deleteKoder(id){
+    return Koders.findByIdAndDelete(id);
+}
+
 module.exports = {
     getAll,
-    newKoder
+    newKoder,
+    deleteKoder
 }   

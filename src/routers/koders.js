@@ -40,7 +40,7 @@ router.post('/', async (request, response) => {
 
         response.json({
             success: true,
-            message: 'koder created we'
+            message: 'koder created'
         })
     }catch (error){
         response.status(400)
@@ -62,6 +62,27 @@ router.post('/', async (request, response) => {
 }
 
 */
+
+router.delete('/:id', async (request, response) => {
+    
+    try {
+        
+        await koders.deleteKoder(request.params.id)
+
+        response.json({
+            succes: true,
+            message: 'Deleted Koder',
+        });
+
+    } catch (error) {
+        response.status(400);
+        response.json({
+            succes: false,
+            message: 'Error at delete Koder',
+            error: error.message
+        });
+    }
+})
 
 
 module.exports = router
