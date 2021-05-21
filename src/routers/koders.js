@@ -38,10 +38,9 @@ router.post('/', async (request, response) => {
         
         await koders.newKoder(request.body)
 
-        res.status(200);
         response.json({
             success: true,
-            message: 'koder created'
+            message: 'koder created we'
         })
     }catch (error){
         response.status(400)
@@ -53,12 +52,16 @@ router.post('/', async (request, response) => {
     }
 })
 
-/* {
-	"name": "Jaime",
-	"lastName": "Rodriguez",
-	"age": 36,
+/* 
+
+{
+	"name": "Jhonathan",
+	"lastName": "Quiroz",
+	"age": 38,
 	"gender": "m"
-} */
+}
+
+*/
 
 
 module.exports = router
