@@ -7,8 +7,7 @@ function getAll () {
     return Koders.find({})    // find regresa una promesa
 }
 
-function newKoder (koder){
-    const { name, lastName, age, gender } = koder
+function newKoder ({ name, lastName, age, gender }){
     return Koders.create( { name, lastName, age, gender } )
 }
 
@@ -16,8 +15,13 @@ function deleteKoder(id){
     return Koders.findByIdAndDelete(id);
 }
 
+function updateById(id, dataToUpdate){
+    return Koders.findByIdAndUpdate(id, dataToUpdate);
+}
+
 module.exports = {
     getAll,
     newKoder,
-    deleteKoder
+    deleteKoder,
+    updateById
 }   
