@@ -51,4 +51,30 @@ router.get('/', async (request, response) => {
 	"password": "kodemia123"
 } */
 
+router.post('/login', async (request, response) => {
+    try {
+        const { email, password } = request.body
+        const token = await users.login(email, password)
+        response.json({
+            success: true,
+            message: 'Logged in',
+            data: {
+                token
+            }
+        })
+    }catch (error){
+        response.status(400)
+        response.json({
+            success: false,
+            message: 'Cloud not log in',
+            error: error.message
+        })
+    }
+})
+
+/* {
+    "email": "mariana@limonyya.com",
+    "password": "Mariana123"
+} */
+
 module.exports = router
